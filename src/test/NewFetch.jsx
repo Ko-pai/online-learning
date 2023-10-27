@@ -27,7 +27,7 @@ const NewFetch = ({ name, title, handleChange }) => {
     })
     .then(res =>{
       if(res.data === "Sign in successfully"){
-        window.location.reload(true)
+        window.location.reload(false)
       }
     })
 
