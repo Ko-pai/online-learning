@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const NewFetch = ({ name, title, handleChange }) => {
   // const [userName, setUserName] = useState()
-  // const [takeName, setTakeName] = useState()
+   const [takeName, setTakeName] = useState()
   // const [takeEmail, setTakeEmail] = useState()
   const url = 'http://localhost:1500/signIn/create'
   const [data,setData] = useState({
@@ -27,7 +27,9 @@ const NewFetch = ({ name, title, handleChange }) => {
     })
     .then(res =>{
       if(res.data === "Sign in successfully"){
-        window.location.reload(false)
+        setTakeName(res.data)
+      }else{
+        setTakeName(res.data)
       }
     })
 
@@ -72,6 +74,7 @@ const NewFetch = ({ name, title, handleChange }) => {
         <button>Sign In</button>
        </form>
      
+     <div className='successText'>{takeName}</div>
     </div>
   )
 }
