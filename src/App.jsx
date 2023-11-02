@@ -1,5 +1,7 @@
-import './App.css';
-import FetchApi from './test/FetchApi';
+import './App.scss';
+import FetchApi from './component/SignIn/FetchApiFromExpress';
+import NavBar from './component/NavBar/NavBar';
+import Learning from './component/Language/Learning';
 
 function App() {
 
@@ -7,7 +9,11 @@ function App() {
 
   return (
     <div className="App">
-       <FetchApi/>
+        <NavBar />
+        <FetchApi/>
+        <Learning />
+        <FetchApi/>
+        <Learning />
     </div>
   );
 }

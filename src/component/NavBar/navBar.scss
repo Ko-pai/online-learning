@@ -1,0 +1,47 @@
+.container{
+    width: 100vw;
+    height: 100px;
+    background: linear-gradient(to right ,rgba(26, 35, 59, 0.92) ,rgb(88, 104, 131));
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    
+
+
+    .left{
+        width: 50%;
+        height: 100%;
+        
+        display: flex;
+        
+        align-items: center;
+
+        .logoAndName{
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: white;
+
+
+            img{
+                width: 50px;
+                height: 50px;
+            }
+            h1{
+                letter-spacing: 1px;
+            }
+        }
+    }
+    .right{
+        width: 50%;
+        height: 100%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
