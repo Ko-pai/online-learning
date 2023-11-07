@@ -1,20 +1,24 @@
 import './App.scss';
-import FetchApi from './component/SignIn/FetchApiFromExpress';
-import NavBar from './component/NavBar/NavBar';
-import Learning from './component/Language/Learning';
+import {BrowserRouter , Routes , Route } from 'react-router-dom'
+import SignUpMainUI from './component/SignUp/SignUpMainUI';
+import Login from './component/Login/Login';
+import HomePage from './component/Home/HomePage';
 
 function App() {
 
   
 
   return (
-    <div className="App">
-        <NavBar />
-        <FetchApi/>
-        <Learning />
-        <FetchApi/>
-        <Learning />
-    </div>
+   <BrowserRouter>
+        <Routes>
+          <Route path='/home' element={<HomePage />}>
+              <Route path='/home/:id' element={<HomePage />} />
+          </Route>
+          <Route path='/' element ={<SignUpMainUI />}/>
+          <Route path='/login' element ={<Login />}/>
+        </Routes>
+   
+   </BrowserRouter>
   );
 }
 

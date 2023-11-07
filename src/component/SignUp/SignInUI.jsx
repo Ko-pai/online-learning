@@ -2,8 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import './newFetch.scss'
 import './signInStyle.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faFacebookSquare, faGoogle, } from '@fortawesome/free-brands-svg-icons'
+// import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom'
+
+// import Login from '../Login/Login'
+
 
 
  import photo from '../../assest/Sign-up-form.png';
@@ -15,9 +18,10 @@ import facebookIcon from '../../assest/icons8-facebook.svg'
  
 
 import axios from 'axios'
+import NavBar from '../NavBar/NavBar'
 //import Successful from './Successful'
 
-const NewFetch = ({ name, title, handleChange }) => {
+const NewFetch = () => {
   const [successText, setSuccessText] = useState()
   const [errorName, seterrorName] = useState()
   const [errorEmail, seterrorEmail] = useState()
@@ -27,11 +31,14 @@ const NewFetch = ({ name, title, handleChange }) => {
   const [sameError, setSameError] = useState()
   const [sameErrorText, setSameErrorText] = useState()
 
+ 
   const [eye,setEye] = useState(false)
 
 
   const [showp,setShowP] = useState()
   const [active,setActive] = useState(false)
+
+  const navigate = useNavigate()
 
   const url = 'http://localhost:1500/signIn/create'
   const [data, setData] = useState({
@@ -40,10 +47,9 @@ const NewFetch = ({ name, title, handleChange }) => {
     password: '',
   })
 
-  //show password function
-  
-   
 
+  
+  //show password function
   function showPassword(e) {
     e.preventDefault()
 
@@ -68,10 +74,15 @@ const NewFetch = ({ name, title, handleChange }) => {
       })
       .then((res) => {
         if (res.data === 'Sign up successfully') {
+          
           setSuccessText(res.data)
           setCheck(true)
           setChoice(false)
           setSameError(false)
+          setTimeout(()=>{
+            navigate(`/home/${data.name}`)
+          },2000)
+          
         }
 
         if (res.data === 'Username and email is already taken!') {
@@ -98,7 +109,13 @@ const NewFetch = ({ name, title, handleChange }) => {
           setEmailChoice(false)
         }
       })
+
+
+      
   }
+
+
+  
 
   //check username and email from database
   function clickHandler(e) {
@@ -122,10 +139,12 @@ const NewFetch = ({ name, title, handleChange }) => {
     }
   }
 
+  
+
   return (
+      <>
+      <NavBar ea = {check} />
     <div className="formContainer">
-
-
     {/* This is robot writing photo */}
       <div className="left">
         <img src={photo} alt="robot"  />
@@ -138,7 +157,7 @@ const NewFetch = ({ name, title, handleChange }) => {
         <div className="signInForm">
           <div className="signInBox">
           <form onSubmit={(e) => submit(e)}>
-            <h2>{title}</h2>
+            <h2>Sign Up</h2>
             <input
               id="name"
               type="text"
@@ -171,7 +190,8 @@ const NewFetch = ({ name, title, handleChange }) => {
             <span className='eye' style={eye ? {opacity : "1"}: {opacity :"0"} } onClick={showPassword}><img src={active ? icon : closeIcon} alt="icon"/></span>
             </div>
             <br />
-            <button>Sign Up</button>
+            <p>Already have an account? <Link to="/login">Log in here</Link></p>
+            <button >Sign Up</button>
           </form>
 
 
@@ -205,6 +225,7 @@ const NewFetch = ({ name, title, handleChange }) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

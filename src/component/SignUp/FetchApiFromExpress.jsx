@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import NewFetch from './SignInUI'
 
+
+
 const FetchApi = (props) => {
   let [name, setName] = useState()
 
@@ -22,7 +24,7 @@ const FetchApi = (props) => {
 
   return (
     <div>
-        <NewFetch name={name} handleChange={handleChange} title="Sign Up" />
+        
     </div>
   )
 }
