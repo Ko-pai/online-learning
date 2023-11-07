@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/new/static/css/main.2ca9d79b.css",
-    "main.js": "/new/static/js/main.e320c9e2.js",
-    "static/media/Sign-up-form.png": "/new/static/media/Sign-up-form.d19048ef38e7f1cce182.png",
-    "index.html": "/new/index.html",
-    "static/media/icons8-google.svg": "/new/static/media/icons8-google.b40778ce9db962e9de29649090e3d307.svg",
-    "static/media/icons8-facebook.svg": "/new/static/media/icons8-facebook.760dd8103d881228404763a98dba0cce.svg",
-    "main.2ca9d79b.css.map": "/new/static/css/main.2ca9d79b.css.map",
-    "main.e320c9e2.js.map": "/new/static/js/main.e320c9e2.js.map"
+    "main.css": "/static/css/main.ee9e7b2a.css",
+    "main.js": "/static/js/main.77308875.js",
+    "static/media/Sign-up-form.png": "/static/media/Sign-up-form.d19048ef38e7f1cce182.png",
+    "index.html": "/index.html",
+    "static/media/icons8-google.svg": "/static/media/icons8-google.b40778ce9db962e9de29649090e3d307.svg",
+    "static/media/icons8-facebook.svg": "/static/media/icons8-facebook.760dd8103d881228404763a98dba0cce.svg",
+    "main.ee9e7b2a.css.map": "/static/css/main.ee9e7b2a.css.map",
+    "main.77308875.js.map": "/static/js/main.77308875.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ca9d79b.css",
-    "static/js/main.e320c9e2.js"
+    "static/css/main.ee9e7b2a.css",
+    "static/js/main.77308875.js"
   ]
 }
