@@ -1,0 +1,204 @@
+@import "../../../global.scss";
+
+.firstPageContainer {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  
+  display: flex;
+
+  @include mobile{
+    flex-direction: column;
+  }
+
+
+  .left {
+    width: 50%;
+    height: 100%;
+    
+    background: #ADCBD7;
+    //background: url(../../../assest/anne-nygard-h7-V2KkCECI-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+
+    @include mobile {
+      height: 60%;
+      width: 100%;
+    }
+
+    .header-text {
+      padding-left: 40px;
+      width: 80%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-top: 30px;
+
+      @include mobile{
+        width: 90%;
+       height: 90%;
+       margin-top: 10px;
+      }
+
+      h1 {
+        font-size: 38px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: -1px;
+        color: black;
+
+        @include mobile{
+          font-size: 30px;
+
+        }
+      }
+
+      p{
+        width: 80%;
+        color: #406882;//rgba(255, 255, 255, 0.87);
+
+        @include mobile{
+          font-size: 15px;
+        }
+      }
+
+      button{
+        width: 120px;
+        height: 38px;
+        border-radius: 20px;
+        color: white;
+        background-color: #1A374D;
+        border: none;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+
+        &:hover{
+           background: #6ba0c9;
+        }
+
+      }
+    }
+
+    .imageTest{
+      width: 100%;
+      height: 45.5%;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      
+
+      img{
+        height: 80%;
+      }
+    }
+  }
+
+  .right {
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile{
+      height: 40%;
+    }
+
+
+    .choose-language-box{
+      width: 70%;
+      height: 80%;
+      background:  #1A374D;//linear-gradient(to bottom ,rgba(204, 167, 133, 0.767) 30%, #5583a6 90%) ;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+
+      .text-container{
+        width: 90%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+
+        h3{
+          width: 100%;
+          text-align: center;
+          color: #faecec;
+
+          i{
+
+            &:hover{
+              text-decoration: underline;
+              cursor: default;
+            }
+          }
+        }
+
+        .language-buttons{
+          width: 60%;
+          height: 70%;
+          display: flex;
+          
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+
+          .korean-button-box,.english-button-box{
+            width: 100%;
+            height: 70px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            &:hover{
+              .handIcon{
+                transform: translateX(-10px);
+              }
+            }
+
+            &:active{
+                
+
+              .handIcon{
+                color: #9A55F3;
+              }
+
+              button{
+                color: #9A55F3;
+              }
+            }
+            
+            .handIcon{
+              transform: translateX(-30px);
+              color: #ADCBD7;
+              font-size: 20px;
+              transition: transform 0.3s ease;
+            }
+
+            button{
+              width: 220px;
+              height: 50px;
+              border: none;
+              border-radius: 20px;
+              color: rgb(17, 17, 17);
+              font-weight: 600;
+              background-color: #ADCBD7;//#3e6990;
+
+              
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+}

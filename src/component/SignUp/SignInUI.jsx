@@ -31,6 +31,9 @@ const NewFetch = () => {
   const [sameError, setSameError] = useState()
   const [sameErrorText, setSameErrorText] = useState()
 
+  const [nameLengthError, setNameLengthError] = useState(false)
+  const [nameLengthText,setNameLengthText] = useState('')
+
  
   const [eye,setEye] = useState(false)
 
@@ -40,7 +43,7 @@ const NewFetch = () => {
 
   const navigate = useNavigate()
 
-  const url = 'http://localhost:1500/signIn/create'
+  const url = 'http://192.168.0.105:1500/signIn/create'
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -80,25 +83,35 @@ const NewFetch = () => {
           setChoice(false)
           setSameError(false)
           setTimeout(()=>{
-            navigate(`/home/${data.name}`)
+            navigate(`/online-learning/home/${data.name}`)
           },2000)
           
         }
 
-        if (res.data === 'Username and email is already taken!') {
+        if (res.data === 'Username is already taken!') {
           setSameErrorText(res.data)
           setChoice(false)
           setEmailChoice(false)
           setSameError(true)
         }
 
-        if (res.data === 'Name is already taken!') {
+        if (res.data === '"email" must be a valid email') {
           seterrorName(res.data)
           setChoice(true)
           setSameError(false)
-        } else {
+        }else if(res.data === '"password" length must be at least 6 characters long'){
+          setNameLengthError(true)
           setChoice(false)
+          setNameLengthText(res.data)
+        }else {
+          setChoice(false)
+          setNameLengthError(false)
         }
+
+
+        // else if(res.data === '"name" length must be at least 4 characters long'){
+        //   set
+        // }
 
         if (res.data === 'Email is already exists.') {
           seterrorEmail(res.data)
@@ -166,7 +179,7 @@ const NewFetch = () => {
               onKeyDown={(e) => backspaceClick(e)}
               placeholder="Username"
             />
-            <p className={choice ? 'open' : 'close'}>{errorName}</p>
+            <p className={sameError ? 'open' : 'close'}>{sameErrorText}</p>
             <br />
             <input
               id="email"
@@ -176,7 +189,7 @@ const NewFetch = () => {
               onKeyDown={(e) => backspaceClick(e)}
               placeholder="Email"
             />
-            <p className={emailChoice ? 'open' : 'close'}>{errorEmail}</p>
+            <p className={emailChoice || choice ? 'open' : 'close'}>{emailChoice ? errorEmail : ""} {choice ? errorName : ''}</p>
             <br />
             <div className='passwordBox'>
             <input
@@ -188,9 +201,10 @@ const NewFetch = () => {
               onClick={(e)=> setShowP(e.target)}
             />
             <span className='eye' style={eye ? {opacity : "1"}: {opacity :"0"} } onClick={showPassword}><img src={active ? icon : closeIcon} alt="icon"/></span>
+              <p className={nameLengthError ? 'open' : 'close'}>{nameLengthText}</p>
             </div>
             <br />
-            <p>Already have an account? <Link to="/login">Log in here</Link></p>
+            <p className='accountLogin'>Already have an account? <Link to="/online-learning/login" className='gotoLink'>Log in here</Link></p>
             <button >Sign Up</button>
           </form>
 
@@ -200,9 +214,9 @@ const NewFetch = () => {
             className="successText"
             style={sameError ? { color: '#F2CA19' } : { color: 'rgb(19, 187, 19)' }}
           >
-            {!choice ? successText : ''}
-
-            {sameError ? sameErrorText : ''} 
+            {check ? successText : ''}
+            
+            
           </div>
           </div>
 

@@ -11,11 +11,11 @@ function App() {
   return (
    <BrowserRouter>
         <Routes>
-          <Route path='https://ko-pai.github.io/new/home' element={<HomePage />}>
-              <Route path='https://ko-pai.github.io/new/home/:id' element={<HomePage />} />
+          <Route path='/online-learning/home' element={<HomePage />}>
+              <Route path='/online-learning/home/:id' element={<HomePage />} />
           </Route>
-          <Route path='https://ko-pai.github.io/new/' element ={<SignUpMainUI />}/>
-          <Route path='https://ko-pai.github.io/new/login' element ={<Login />}/>
+          <Route path='/online-learning/signIn' element ={<SignUpMainUI />}/>
+          <Route path='/online-learning/login' element ={<Login />}/>
         </Routes>
    
    </BrowserRouter>

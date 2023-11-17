@@ -1,0 +1,16 @@
+$width : 768px;
+$minWidth : 900px;
+$mainFontColor : #5583a6;
+
+
+@mixin mobile{
+    @media (max-width : #{$width}) {
+        @content
+    }
+};
+
+@mixin pc {
+    @media (min-width : #{$minWidth}) {
+        @content
+    }
+}

@@ -1,15 +1,24 @@
+@import "../../global.scss";
+
+
 .container{
     width: 100vw;
     height: 100px;
-    background: linear-gradient(to right ,rgba(26, 35, 59, 0.92) ,rgb(88, 104, 131));
+    background: #406882;//linear-gradient(to left ,#8d735a 40%, #5583a6 90%); //rgb(132, 148, 175)
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
     align-items: center;
+    box-shadow: 0px -15px 20px 10px rgba($color: #255079 ,$alpha: 0.7);
     
+    
+    @include mobile{
+       
+        justify-content: space-between;
+    }
     
 
 
@@ -21,12 +30,21 @@
         
         align-items: center;
 
+        @include mobile{
+            width: 80%;
+            justify-content: space-between;
+        }
+
         .logoAndName{
             width: 60%;
             display: flex;
             align-items: center;
             justify-content: space-around;
-            color: white;
+            color: #fff;
+
+            @include mobile{
+                width: 100%;
+            }
 
 
             img{
@@ -45,30 +63,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include mobile{
+            display: none;
+        }
     }
     
-    .active{
-        display: flex;
-        width: 40px;
-        height: 40px;
-        background-color: rgb(250, 250, 249);
-        
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-
-        .userIcon{
-            font-size: 20px;
-            
-        }
-
-        .main{
-            
-        }
-
-        
-    }
-
+    
     .lastDiv{
         width: 80px;    
         height: 100%;
@@ -76,7 +77,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
+        user-select: none;
 
         .profileIconContainer{
             display: none;
@@ -84,23 +85,130 @@
     
     
         }
+
+
+        .active{
+            display: flex;
+            width: 40px;
+            height: 40px;
+            background-color: #adcbd7;
+            
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+    
+            .userIcon{
+                font-size: 20px;
+                color: white;
+                
+            }
+    
+            .main{
+                
+            }
+    
+            
+        }
     .dropBox{
-            width: 200px;
-            height: 80px;
-            background-color: black;
+            width: 150px;
+            height: 100px;
+            background-color: #6998AB ;//#2e424d;
             position: absolute;
             top: 75px;
             transform: rotate(360deg) scale(0);
             right: 130px;
-            display: flex;
-            opacity: 1;
+            
+            align-items: center;
+            border-radius: 10px;
+            opacity: 0;
+            flex-direction: column;
             transition: all 0.5s ease;
+
+            @include mobile{
+                top: 90px;
+                right: 20px;
+            }
+
+            .close{
+                display: none;
+            }
+
+            .home-box{
+                width: 90%;
+                padding: 0px 5px ;
+                height: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                user-select: none;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+                
+
+                &:focus{
+                    outline: none !important; 
+                }
+                
+
+                &:active{
+                    
+                    .ic,p{
+                        color:#9A55F3;
+                    }
+
+                }
+
+                .ic{
+                    color: white;
+
+                    &:hover{
+                        color: #9A55F3;
+                    }
+                    
+                }
+
+                p{
+                    font-size: 13px;
+                    letter-spacing: 0px;
+                    font-weight: 500;
+                    color: wheat;
+
+                    &:hover{
+                        color: crimson;
+                    }
+                }
+
+            }
         }
     
         .undrop{
             transform: rotate(360deg) scale(1);
+            opacity: 1;
+            padding: 10px;
+            display: flex;
+
+            .good{
+                color: white;
+                font-family: 'Inter', sans-serif;
+                font-size: 15px;
+                letter-spacing: 0px;
+            }
+            p{
+                font-size: 13px;
+                letter-spacing: 0px;
+                font-weight: 500;
+                color: wheat;
+                
+                &:hover{
+                    color: crimson;
+                }
+            }
+
+            
         }
     }
-    
+
+  
 
 }

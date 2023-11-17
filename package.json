@@ -1,6 +1,6 @@
 {
   "name": "online-learning",
-  "homepage": "https://ko-pai.github.io/new",
+  "homepage": "https://ko-pai.github.io/online-learning",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "SET HOST = 192.168.0.105 PORT = 1000 && react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",

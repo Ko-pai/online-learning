@@ -1,6 +1,12 @@
+@import "../../../global.scss";
+
 .listContainer{
     width: 60%;
     font-family: 'Poppins', sans-serif;
+
+    @include mobile{
+        display: none;
+    }
 
     ul{
         display: flex;
@@ -11,7 +17,7 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: 500;
-            color: white;
+            color: #fff;
 
             &:hover{
                 border-bottom: 4px solid black;
