@@ -15,6 +15,7 @@ function App() {
               <Route path='/online-learning/home/:id' element={<HomePage />} />
           </Route>
           <Route path='/online-learning/signIn' element ={<SignUpMainUI />}/>
+          <Route path='/online-learning/' element ={<SignUpMainUI />}/>
           <Route path='/online-learning/login' element ={<Login />}/>
         </Routes>
    
